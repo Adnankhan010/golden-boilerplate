@@ -28,4 +28,8 @@ model User {
   status    UserStatus @default(PENDING)
   createdAt DateTime   @default(now())
   updatedAt DateTime   @updatedAt
+
+  // Social Login Fields
+  provider   String?  @default("LOCAL") // LOCAL, GOOGLE, FACEBOOK
+  providerId String?
 }
