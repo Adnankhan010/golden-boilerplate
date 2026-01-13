@@ -1,6 +1,6 @@
 # My Golden Stack
 
-![CI Status](https://img.shields.io/github/actions/workflow/status/username/my-golden-stack/ci.yml?branch=main)
+![CI Status](https://img.shields.io/github/actions/workflow/status/guxedo/golden-boilerplate/ci.yml?branch=main)
 ![License](https://img.shields.io/badge/license-MIT-blue)
 ![Stack](https://img.shields.io/badge/stack-Turborepo%20%7C%20NestJS%20%7C%20React-black)
 
