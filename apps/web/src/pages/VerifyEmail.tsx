@@ -4,7 +4,6 @@ import { api } from '../lib/api';
 
 export default function VerifyEmail() {
     const navigate = useNavigate();
-    // @ts-ignore
     const search = useSearch({ from: '/verify' });
     const [status, setStatus] = useState<'verifying' | 'success' | 'error'>('verifying');
     const [message, setMessage] = useState('');
@@ -12,14 +11,12 @@ export default function VerifyEmail() {
     useEffect(() => {
         const verify = async () => {
             try {
-                // @ts-ignore
                 if (!search.token) {
                     setStatus('error');
                     setMessage('No verification token provided.');
                     return;
                 }
 
-                // @ts-ignore
                 await api.get(`/auth/verify?token=${search.token}`);
                 setStatus('success');
             } catch (err: any) {

@@ -1,4 +1,4 @@
-import { Injectable, UnauthorizedException, ForbiddenException, BadRequestException } from '@nestjs/common';
+import { Injectable, ForbiddenException, BadRequestException } from '@nestjs/common';
 import { PrismaClient, UserStatus } from '@prisma/client';
 import { JwtService } from '@nestjs/jwt';
 import { MailService } from '../mail/mail.service';
@@ -27,7 +27,7 @@ export class AuthService {
                 throw new ForbiddenException('Account pending approval or disabled.');
             }
 
-            const { password, ...result } = user;
+            const { ...result } = user;
             return result;
         }
         return null;
@@ -86,7 +86,7 @@ export class AuthService {
 
             return { message: 'Email verified successfully. Account is now PENDING admin approval.' };
 
-        } catch (e) {
+        } catch {
             throw new BadRequestException('Invalid or expired verification token.');
         }
     }

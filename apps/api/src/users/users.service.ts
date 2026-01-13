@@ -1,5 +1,5 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
-import { PrismaClient, UserStatus, Role } from '@prisma/client';
+import { PrismaClient, UserStatus } from '@prisma/client';
 import { createPaginatedResponse } from '../common/pagination/pagination.util';
 
 const prisma = new PrismaClient();

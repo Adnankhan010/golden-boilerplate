@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, useEffect } from 'react';
+import React, { createContext, useContext, useState } from 'react';
 
 
 interface User {
@@ -24,11 +24,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         return stored ? JSON.parse(stored) : null;
     });
     const [token, setToken] = useState<string | null>(localStorage.getItem('token'));
-    const [isLoading, setIsLoading] = useState(true);
-
-    useEffect(() => {
-        setIsLoading(false);
-    }, [token]);
+    const [isLoading] = useState(false);
 
     const login = (newToken: string, newUser: User) => {
         localStorage.setItem('token', newToken);
