@@ -3,6 +3,7 @@
     "version": "0.0.1",
     "private": true,
     "description": "Frontend application built with React, Vite, and Shadcn/ui.",
+    "type": "module",
     "scripts": {
         "dev": "vite",
         "build": "tsc && vite build",
