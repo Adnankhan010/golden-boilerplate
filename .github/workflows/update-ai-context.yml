@@ -2,7 +2,8 @@ name: Update AI Context
 on:
   push:
     branches: [ main ]
-  workflow_dispatch:  
+  workflow_dispatch:
+
 jobs:
   update-context-branch:
     runs-on: ubuntu-latest
@@ -16,8 +17,19 @@ jobs:
         with:
           node-version: '20'
 
-      - name: Generate Repomix
-        run: npx repomix --style xml --output repomix-output.xml
+      - name: Generate Repomix (Raw Text)
+        # Generate the standard output as .txt first (safe version)
+        run: npx repomix --style xml --output repomix-output.txt
+
+      - name: Create Sanitized XML
+        # 1. Copy txt to xml
+        # 2. Use sed to delete all lines from the start (1) until the first line that starts with '<'
+        #    This removes the "This file is a merged representation..." preamble.
+        run: |
+          cp repomix-output.txt repomix-output.xml
+          sed -i '0,/<[^?]/s/.*\(<[^?]\)/\1/' repomix-output.xml || true
+          # Alternative safer sed: remove lines until the first tag is found
+          sed -i '/^</!d' repomix-output.xml
 
       - name: Push to AI Context Branch
         run: |
@@ -27,9 +39,8 @@ jobs:
           git checkout --orphan ai-context
           git reset --hard
           
-          git add -f repomix-output.xml
+          # Add BOTH files
+          git add -f repomix-output.txt repomix-output.xml
           
-          git commit -m "chore: update ai context [skip ci]"
-          
-          git push origin ai-context --force
+          git commit -m "chore: update ai context (txt and sanitized xml) [skip ci]"
           git push origin ai-context --force
