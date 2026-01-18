@@ -17,25 +17,8 @@ jobs:
         with:
           node-version: '20'
 
-      - name: Generate Context and Wrap in HTML
-        run: |
-          npx repomix --style xml --output repomix-output.txt
-          
-          echo '<!DOCTYPE html>' > index.html
-          echo '<html lang="en">' >> index.html
-          echo '<head><meta charset="UTF-8"><title>AI Context Source</title></head>' >> index.html
-          echo '<body>' >> index.html
-          echo '<h1>Golden Boilerplate Context</h1>' >> index.html
-          echo '<p>Generated on: '$(date)'</p>' >> index.html
-          echo '<hr>' >> index.html
-          
-          echo '<pre>' >> index.html
-          
-          cat repomix-output.txt >> index.html
-          
-          echo '</pre>' >> index.html
-          echo '</body>' >> index.html
-          echo '</html>' >> index.html
+      - name: Generate AI Context (Markdown format)
+        run: npx repomix --style markdown --output repomix-output.txt
 
       - name: Push to AI Context Branch
         run: |
@@ -45,7 +28,8 @@ jobs:
           git checkout --orphan ai-context
           git reset --hard
           
-          git add -f index.html
+          # Agregamos el archivo de texto
+          git add -f repomix-output.txt
           
-          git commit -m "chore: update ai context (html wrapper) [skip ci]"
+          git commit -m "chore: update ai context to markdown txt [skip ci]"
           git push origin ai-context --force
