@@ -1,0 +1,35 @@
+name: Update AI Context
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:  
+jobs:
+  update-context-branch:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Generate Repomix
+        run: npx repomix --style xml --output repomix-output.xml
+
+      - name: Push to AI Context Branch
+        run: |
+          git config --global user.name 'AI Context Bot'
+          git config --global user.email 'bot@noreply.github.com'
+          
+          git checkout --orphan ai-context
+          git reset --hard
+          
+          git add -f repomix-output.xml
+          
+          git commit -m "chore: update ai context [skip ci]"
+          
+          git push origin ai-context --force
+          git push origin ai-context --force
