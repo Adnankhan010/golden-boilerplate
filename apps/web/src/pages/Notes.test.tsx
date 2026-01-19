@@ -1,4 +1,5 @@
-import { render, screen } from '@testing-library/react';
+import React from 'react';
+import { render, screen, waitFor } from '@testing-library/react';
 import { describe, it, expect, vi } from 'vitest';
 import Notes from './Notes';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
@@ -6,7 +7,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 // Mock dependencies
 vi.mock('@/lib/api', () => ({
     api: {
-        get: vi.fn(),
+        get: vi.fn().mockResolvedValue({ data: [] }),
         post: vi.fn(),
         delete: vi.fn(),
     },
@@ -48,7 +49,9 @@ describe('Notes Page', () => {
         );
 
         // Smoke Test: Check title
-        expect(screen.getByText('My Notes')).toBeDefined(); // Using toBeDefined instead of toBeInTheDocument if jest-dom not setup
+        await waitFor(() => {
+            expect(screen.getByText('My Notes')).toBeDefined();
+        });
 
         // Smoke Test: Check Create Button
         expect(screen.getByText('Create Note')).toBeDefined();
