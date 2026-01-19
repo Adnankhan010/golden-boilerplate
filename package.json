@@ -1,5 +1,5 @@
-{
   "name": "my-golden-stack",
+  "version": "1.0.0",
   "private": true,
   "description": "A production-ready Monorepo Boilerplate featuring NestJS, React + Vite, and a \"Double Lock\" Authentication strategy.",
   "scripts": {
