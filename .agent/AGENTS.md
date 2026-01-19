@@ -12,3 +12,4 @@ This registry lists all available skills in the Golden Boilerplate ecosystem, al
 | **testing-quality** | Runs and writes tests. | `Test`, `TDD`, `Spec` |
 | **git-github-ops** | Manages Git branches, issues, and atomic commits. | `Start feature`, `Commit task`, `Merge` |
 | **documentation-architect** | Maintains Functional Docs (Use Cases/Sequences), Test Plans, and Architectural records. | `Document feature`, `Initial documentation pass` |
+| **release-management** | Manages Semantic Versioning, Changelog generation, Git Tags, and GitHub Releases. | `Prepare release`, `Create tag` |

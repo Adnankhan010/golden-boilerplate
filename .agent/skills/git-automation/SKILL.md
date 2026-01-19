@@ -46,3 +46,4 @@ This skill governs the version control and task management workflow for the Gold
     1.  Run the full test suite: `pnpm test`.
     2.  If tests pass, ask the user: *"All tasks complete. Shall I merge 'branch-name' into 'main'?"*
     3.  If yes, perform the merge (or create a PR if preferred/configured).
+    4.  **Post-Merge:** Call `release-management` skill to check if a new release/tag should be generated based on the commited changes.
