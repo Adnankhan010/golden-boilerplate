@@ -43,6 +43,8 @@ This skill governs the version control and task management workflow for the Gold
 ## 4. Merge Protocol
 *   **Trigger:** When all tasks in the plan are marked "Done".
 *   **Process:**
+    0.  **Code Review:** Execute `code-review-policy` on the current branch differences.
+        *   If the Reviewer reports **Critical Issues**, **ABORT** the merge and request fixes.
     1.  Run the full test suite: `pnpm test`.
     2.  If tests pass, ask the user: *"All tasks complete. Shall I merge 'branch-name' into 'main'?"*
     3.  If yes, perform the merge (or create a PR if preferred/configured).

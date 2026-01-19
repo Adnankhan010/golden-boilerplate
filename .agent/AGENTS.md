@@ -5,7 +5,7 @@ This registry lists all available skills in the Golden Boilerplate ecosystem, al
 | Skill Name | Description | Triggers |
 | :--- | :--- | :--- |
 | **scaffold-feature** | Generates full-stack vertical slices (Backend+Frontend). | `New feature`, `Scaffold` |
-| **pull-request-policy** | Reviews code against Golden Standards. | `Review PR`, `Check code` |
+| **code-review-policy** | Acts as a Senior Engineer to review code against Architecture, Security, and Clean Code standards before merging. | `Review code`, `Check PR`, `Pre-merge check` |
 | **nestjs-ddd** | Expert in NestJS Architecture & Domain Logic. | `Backend logic`, `Controller` |
 | **react-shadcn** | Expert in Frontend UI & State. | `UI`, `Component`, `Page` |
 | **database-prisma** | Manages DB Schema & Migrations. | `Schema`, `Database`, `Model` |
