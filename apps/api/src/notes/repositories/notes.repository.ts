@@ -27,4 +27,10 @@ export class NoteRepository {
         });
         return note ? Note.restore(note) : null;
     }
+
+    async delete(id: string): Promise<void> {
+        await this.prisma.note.delete({
+            where: { id },
+        });
+    }
 }

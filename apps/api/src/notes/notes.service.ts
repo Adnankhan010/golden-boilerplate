@@ -2,7 +2,7 @@ import { Injectable, ForbiddenException, NotFoundException } from '@nestjs/commo
 import { NoteRepository } from './repositories/notes.repository';
 import { CreateNoteDto } from './dto/create-note.dto';
 import { Note } from './entities/note.entity';
-import { UsersRepository } from '../../users/repositories/users.repository';
+import { UsersRepository } from '../users/repositories/users.repository';
 
 @Injectable()
 export class NotesService {
@@ -25,5 +25,16 @@ export class NotesService {
 
     async findAll(userId: string): Promise<Note[]> {
         return this.noteRepository.findAllByUserId(userId);
+    }
+
+    async delete(userId: string, noteId: string): Promise<void> {
+        const note = await this.noteRepository.findById(noteId);
+        if (!note) {
+            throw new NotFoundException('Note not found');
+        }
+        if (note.userId !== userId) {
+            throw new ForbiddenException('You can only delete your own notes');
+        }
+        await this.noteRepository.delete(noteId);
     }
 }

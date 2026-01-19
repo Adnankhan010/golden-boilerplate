@@ -1,7 +1,7 @@
-import { Controller, Get, Post, Body, UseGuards, Request } from '@nestjs/common';
+import { Controller, Get, Post, Delete, Body, Param, UseGuards, Request } from '@nestjs/common';
 import { NotesService } from './notes.service';
 import { CreateNoteDto } from './dto/create-note.dto';
-import { AuthGuard } from '../../auth/auth.guard';
+import { AuthGuard } from '../auth/auth.guard';
 
 @Controller('notes')
 @UseGuards(AuthGuard)
@@ -16,5 +16,10 @@ export class NotesController {
     @Get()
     findAll(@Request() req) {
         return this.notesService.findAll(req.user.sub);
+    }
+
+    @Delete(':id')
+    delete(@Request() req, @Param('id') id: string) {
+        return this.notesService.delete(req.user.sub, id);
     }
 }
