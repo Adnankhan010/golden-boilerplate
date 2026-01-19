@@ -1,7 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import { describe, it, expect, vi } from 'vitest';
 import Notes from './Notes';
-import { AuthProvider } from '@/context/AuthContext';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
 // Mock dependencies
@@ -27,7 +26,6 @@ vi.mock('@/context/AuthContext', () => ({
         user: mockUser,
         logout: vi.fn(),
     }),
-    AuthProvider: ({ children }: { children: React.ReactNode }) => <div>{children}</div>,
 }));
 
 // Setup QueryClient

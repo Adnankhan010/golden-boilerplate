@@ -11,7 +11,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { Plus, Trash, Loader2 } from 'lucide-react';
-import { useAuth } from '@/context/AuthContext';
+// import { useAuth } from '@/context/AuthContext';
 
 interface Note {
     id: string;
@@ -28,7 +28,7 @@ const createNoteSchema = z.object({
 type CreateNoteForm = z.infer<typeof createNoteSchema>;
 
 export default function Notes() {
-    const { user } = useAuth();
+    // const { user } = useAuth(); // Not used currently
     const queryClient = useQueryClient();
     const [isDialogOpen, setIsDialogOpen] = useState(false);
 
