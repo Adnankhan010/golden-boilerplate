@@ -19,6 +19,7 @@ import AdminLogin from './pages/AdminLogin'
 import AdminDashboard from './pages/AdminDashboard'
 import LandingPage from './pages/LandingPage'
 import Notes from './pages/Notes'
+import Settings from './pages/Settings'
 import AdminLayout from './layouts/AdminLayout'
 import { AdminUserList } from './components/AdminUserList'
 
@@ -69,6 +70,19 @@ const notesRoute = createRoute({
     getParentRoute: () => rootRoute,
     path: '/notes',
     component: Notes,
+    beforeLoad: () => {
+        if (!localStorage.getItem('token')) {
+            throw redirect({
+                to: '/login',
+            })
+        }
+    }
+})
+
+const settingsRoute = createRoute({
+    getParentRoute: () => rootRoute,
+    path: '/settings',
+    component: Settings,
     beforeLoad: () => {
         if (!localStorage.getItem('token')) {
             throw redirect({
@@ -135,6 +149,7 @@ const routeTree = rootRoute.addChildren([
     verifyRoute,
     dashboardRoute,
     notesRoute,
+    settingsRoute,
     adminLoginRoute,
     adminRoute.addChildren([
         adminDashboardRoute,

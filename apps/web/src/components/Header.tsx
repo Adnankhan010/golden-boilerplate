@@ -63,6 +63,9 @@ export function Header() {
                                 <DropdownMenuItem onClick={() => navigate({ to: '/notes' })}>
                                     My Notes
                                 </DropdownMenuItem>
+                                <DropdownMenuItem onClick={() => navigate({ to: '/settings' })}>
+                                    Settings
+                                </DropdownMenuItem>
                                 {user.role === 'ADMIN' && (
                                     <DropdownMenuItem onClick={() => navigate({ to: '/admin' })}>
                                         Admin Panel
@@ -86,6 +89,6 @@ export function Header() {
                     )}
                 </div>
             </div>
-        </header>
+        </header >
     );
 }
